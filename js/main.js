@@ -18,10 +18,43 @@ const titleClickHandler = function (event) {
   const articleSelector = clickedElement.getAttribute('href');
   /* find the correct article using the selector (value of 'href' attribute) */
   const targetArticle = document.querySelector(articleSelector);
-  console.log(targetArticle);
   /* add class 'active' to the correct article */
   targetArticle.classList.add('active');
 }
+
+
+// opt
+const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
+
+function generateTitleLinks() {
+
+  /* remove contents of titleList */
+  const titleList = document.querySelector(optTitleListSelector);
+  titleList.innerHTML = '';
+  /* for each article */
+  const articles = document.querySelectorAll(optArticleSelector);
+  let html = '';
+  for (let article of articles) {
+
+    /* get the article id */
+    const articleId = article.getAttribute('id');
+
+    /* find the title element */
+    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+    /* get the title from the title element */
+
+    /* create HTML of the link */
+    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+
+    /* insert link into titleList */
+    html = html + linkHTML;
+  }
+  titleList.innerHTML = html;
+  titleList.querySelector('li').classList.add('active');
+}
+generateTitleLinks();
 
 const links = document.querySelectorAll('.titles a');
 

@@ -5,13 +5,18 @@
 $color-light: #fff;
 $color-dark: #444;
 
-$font-logo: 'Sacramento', cursive;
-$font-header: 'Oswald', sans-serif;
-$font-text: 'Source Sans Pro', sans-serif;
+$font-logo: 'Sacramento',
+cursive;
+$font-header: 'Oswald',
+sans-serif;
+$font-text: 'Source Sans Pro',
+sans-serif;
 
 /* Global */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -21,7 +26,7 @@ body {
   color: $color-dark;
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 2.0;
 }
 
 .container {
@@ -34,6 +39,7 @@ body {
   text-transform: uppercase;
   font-family: $font-header;
   font-weight: 600;
+
   span {
     text-transform: none;
     font-weight: 400;
@@ -45,6 +51,7 @@ body {
 
 .wrapper {
   display: flex;
+  flex-wrap: wrap;
   margin-left: 10px;
 }
 
@@ -56,12 +63,24 @@ body {
   flex: 2 0 0;
 }
 
-.sidebar, .posts {
+.sidebar,
+.posts {
   background: $color-light;
-  margin-right: 10px;
+  margin-right: 15px;
+  margin-bottom: 20px;
   padding: 40px;
   border: 1px solid $color-dark;
   border-radius: 5px;
+  box-shadow: 2px 3px 5px $color-dark;
+  ul li a {
+    color: $color-dark;
+  }
+  h3{
+    font-size: 22px;
+    text-transform: uppercase;
+    font-family: $font-header;
+    font-weight: 600;
+  }
 }
 
 /* Logo */
@@ -80,10 +99,12 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+
   .active {
     font-weight: bold;
   }
 }
+
 
 .list-horizontal {
   li {
@@ -102,8 +123,11 @@ body {
 /* Post */
 
 .post {
+  min-width: 200px;
+  font-family: $font-text;
   display: none;
   &.active {
+   
     display: block;
   }
 }
@@ -114,7 +138,14 @@ body {
 
 .post-tags {
   display: flex;
+
   p {
     margin: 0 10px 0 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    text-align: center;
   }
 }
